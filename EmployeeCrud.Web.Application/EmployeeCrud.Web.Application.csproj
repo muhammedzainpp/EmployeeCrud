@@ -16,8 +16,4 @@
     <ProjectReference Include="..\EmployeeCrud.Web.Shared\EmployeeCrud.Web.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Employees\Queries\" />
-  </ItemGroup>
-
 </Project>
