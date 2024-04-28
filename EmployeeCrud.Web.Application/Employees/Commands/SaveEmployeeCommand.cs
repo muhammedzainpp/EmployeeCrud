@@ -2,12 +2,14 @@
 using EmployeeCrud.Web.Domain.Entities;
 using EmployeeCrud.Web.Shared.Responses;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using static EmployeeCrud.Web.Application.Helpers.ResponseHelpers;
 
 
 namespace EmployeeCrud.Web.Application.Employees.Commands;
 public class SaveEmployeeCommand  : IRequest<Response<int>>
 {
+    public int Id { get; set; }
     public required string Name { get; set; }
     public required string Description { get; set; }
 }
@@ -39,6 +41,19 @@ public class SaveEmployeeCommandHandler(IAppDbContext context) : IRequestHandler
     private async Task<int> SaveAsync(SaveEmployeeCommand request)
     {
 
+        Employee employee;
+
+        if (request.Id == 0)
+            employee = await CreateAsync(request);
+        else
+            employee = await UpdateAsync(request);
+
+        return employee.Id;
+    }
+
+    private async Task<Employee> CreateAsync(SaveEmployeeCommand request)
+    {
+
         var employee = new Employee()
         {
             Name = request.Name,
@@ -47,7 +62,17 @@ public class SaveEmployeeCommandHandler(IAppDbContext context) : IRequestHandler
 
         await _context.Employees.AddAsync(employee);
         _context.SaveChanges();
+        return  employee;
+    }
+    private async Task<Employee> UpdateAsync(SaveEmployeeCommand request)
+    {
 
-        return employee.Id;
+        var employee = await _context
+         .Employees
+         .FirstOrDefaultAsync(e => e.Id == request.Id) ?? default! ;
+         employee.Name = request.Name;
+         employee.Description = request.Description;
+         _context.SaveChanges();
+         return employee;
     }
 }
