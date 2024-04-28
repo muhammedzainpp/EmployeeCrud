@@ -1,5 +1,8 @@
+using EmployeeCrud.Web.Application.Interfaces;
 using EmployeeCrud.Web.Client.Pages;
 using EmployeeCrud.Web.Components;
+using EmployeeCrud.Web.Infra.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeCrud.Web;
 public class Program
@@ -13,7 +16,12 @@ public class Program
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
 
+        builder.Services.AddDbContext<IAppDbContext,AppDbContext>(options =>
+        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
         var app = builder.Build();
+
+
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
