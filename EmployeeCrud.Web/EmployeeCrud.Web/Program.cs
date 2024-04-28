@@ -4,6 +4,7 @@ using EmployeeCrud.Web.Components;
 using EmployeeCrud.Web.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using EmployeeCrud.Web.Application.DI;
+using EmployeeCrud.Web.Apis;
 
 namespace EmployeeCrud.Web;
 public class Program
@@ -46,6 +47,9 @@ public class Program
             .AddInteractiveServerRenderMode()
             .AddInteractiveWebAssemblyRenderMode()
             .AddAdditionalAssemblies(typeof(Counter).Assembly);
+
+        var apiGroup = app.MapGroup("/api");
+        EndPoints.MapEndPoints(apiGroup);
 
         app.Run();
     }
