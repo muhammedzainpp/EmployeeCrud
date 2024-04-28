@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Applicatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Infra", "EmployeeCrud.Web.Infra\EmployeeCrud.Web.Infra.csproj", "{2AA9FD74-226B-43CC-A148-A5419BF13E7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Shared", "EmployeeCrud.Web.Shared\EmployeeCrud.Web.Shared.csproj", "{E223D44B-7D27-4282-A025-D225FD62B6C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2AA9FD74-226B-43CC-A148-A5419BF13E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA9FD74-226B-43CC-A148-A5419BF13E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA9FD74-226B-43CC-A148-A5419BF13E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E223D44B-7D27-4282-A025-D225FD62B6C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E223D44B-7D27-4282-A025-D225FD62B6C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E223D44B-7D27-4282-A025-D225FD62B6C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E223D44B-7D27-4282-A025-D225FD62B6C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
