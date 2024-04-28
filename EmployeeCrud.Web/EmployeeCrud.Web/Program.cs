@@ -3,6 +3,7 @@ using EmployeeCrud.Web.Client.Pages;
 using EmployeeCrud.Web.Components;
 using EmployeeCrud.Web.Infra.Data;
 using Microsoft.EntityFrameworkCore;
+using EmployeeCrud.Web.Application.DI;
 
 namespace EmployeeCrud.Web;
 public class Program
@@ -15,6 +16,7 @@ public class Program
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
+        builder.Services.AddApplication();
 
         builder.Services.AddDbContext<IAppDbContext,AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
