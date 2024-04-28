@@ -1,5 +1,6 @@
 ﻿
 using EmployeeCrud.Web.Application.Employees.Commands;
+using EmployeeCrud.Web.Application.Employees.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,11 +12,18 @@ public static class EmployeeApi
     {
         var group = app.MapGroup("employees");
         group.MapPost("/",SaveEmployee);
+        group.MapGet("/",GetEmployees);
     }
 
     private static async Task<IResult> SaveEmployee([FromServices] IMediator mediator , [FromBody] SaveEmployeeCommand request)
     {
         var response = await mediator.Send(request);
+        return Results.Ok(response);
+    }
+
+    private static async Task<IResult> GetEmployees([FromServices] IMediator mediator)
+    {
+        var response = await mediator.Send(new GetEmployeesQuery());
         return Results.Ok(response);
     }
 }
