@@ -5,8 +5,8 @@ public class SaveEmployeeCommandValidator : AbstractValidator<SaveEmployeeComman
 {
     public SaveEmployeeCommandValidator()
     {
-        RuleFor(x => x.Name).NotEmpty().WithMessage("Name Should Not Be Empty");
-        RuleFor(x => x.Description).NotEmpty().WithMessage("Description Should Not Be Empty");
+        RuleFor(x => x.Name).NotEmpty();
+        RuleFor(x => x.Description).NotEmpty();
     }
 }
 

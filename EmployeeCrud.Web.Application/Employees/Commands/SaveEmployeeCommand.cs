@@ -40,18 +40,23 @@ public class SaveEmployeeCommandHandler(IAppDbContext context) : IRequestHandler
 
     private async Task<int> SaveAsync(SaveEmployeeCommand request)
     {
-
-        Employee employee;
+        
+        int id;
 
         if (request.Id == 0)
-            employee = await CreateAsync(request);
+        {
+            id = await CreateAsync(request);
+            return id;
+        }
         else
-            employee = await UpdateAsync(request);
-
-        return employee.Id;
+        {
+            id = await UpdateAsync(request);
+            return id;
+        }
+ 
     }
 
-    private async Task<Employee> CreateAsync(SaveEmployeeCommand request)
+    private async Task<int> CreateAsync(SaveEmployeeCommand request)
     {
 
         var employee = new Employee()
@@ -62,9 +67,9 @@ public class SaveEmployeeCommandHandler(IAppDbContext context) : IRequestHandler
 
         await _context.Employees.AddAsync(employee);
         _context.SaveChanges();
-        return  employee;
+        return  employee.Id;
     }
-    private async Task<Employee> UpdateAsync(SaveEmployeeCommand request)
+    private async Task<int> UpdateAsync(SaveEmployeeCommand request)
     {
 
         var employee = await _context
@@ -73,6 +78,6 @@ public class SaveEmployeeCommandHandler(IAppDbContext context) : IRequestHandler
          employee.Name = request.Name;
          employee.Description = request.Description;
          _context.SaveChanges();
-         return employee;
+         return employee.Id;
     }
 }

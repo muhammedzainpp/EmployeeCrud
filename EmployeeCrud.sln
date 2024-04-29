@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Web", "Employe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Web.Client", "EmployeeCrud.Web\EmployeeCrud.Web.Client\EmployeeCrud.Web.Client.csproj", "{B3EC014A-8B95-4A1A-85A2-B56BF496F949}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Domain", "EmployeeCrud.Web.Domain\EmployeeCrud.Web.Domain.csproj", "{D9A5B56A-2A9B-4FB8-AF63-9124BE309285}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Web.Domain", "EmployeeCrud.Web.Domain\EmployeeCrud.Web.Domain.csproj", "{D9A5B56A-2A9B-4FB8-AF63-9124BE309285}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Application", "EmployeeCrud.Web.Application\EmployeeCrud.Web.Application.csproj", "{C5CF2C5C-5AFA-4DC8-BC1B-4CCB33DDD6EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Web.Application", "EmployeeCrud.Web.Application\EmployeeCrud.Web.Application.csproj", "{C5CF2C5C-5AFA-4DC8-BC1B-4CCB33DDD6EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Infra", "EmployeeCrud.Web.Infra\EmployeeCrud.Web.Infra.csproj", "{2AA9FD74-226B-43CC-A148-A5419BF13E7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Web.Infra", "EmployeeCrud.Web.Infra\EmployeeCrud.Web.Infra.csproj", "{2AA9FD74-226B-43CC-A148-A5419BF13E7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeCrud.Web.Shared", "EmployeeCrud.Web.Shared\EmployeeCrud.Web.Shared.csproj", "{E223D44B-7D27-4282-A025-D225FD62B6C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmployeeCrud.Web.Shared", "EmployeeCrud.Web.Shared\EmployeeCrud.Web.Shared.csproj", "{E223D44B-7D27-4282-A025-D225FD62B6C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
