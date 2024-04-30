@@ -1,0 +1,18 @@
+﻿@page "/employeelist"
+@rendermode InteractiveAuto
+
+<div class="row">
+@foreach(var employee in Employees)
+{
+    
+    <div class="card col-md-4" style="width: 15rem;margin-top:100px;margin-left:50px" >
+        <div class="card-body">
+            <h5 class="card-title">@employee.Name</h5>
+            <p class="card-text">@employee.Description.</p>
+                <button @onclick="()=>{NavigateToEdit(employee.Id,employee.Name,employee.Description);}"  style="margin-top:auto;justify-content: flex-end;" class="btn btn-primary ">Edit</button>
+                <button @onclick="async()=>{await DeleteEmployee(employee.Id);}" style="margin-top:auto;justify-content: flex-end;" class="btn btn-primary">Delete</button>
+            </div>
+    </div>
+   
+}
+</div>

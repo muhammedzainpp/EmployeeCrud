@@ -1,0 +1,37 @@
+﻿@page "/create"
+@page "/create/{EmployeeId:int}/{Name}/{Description}"
+@rendermode InteractiveAuto
+<style>
+
+    .form-group label {
+      width:20rem;
+      margin-bottom:5px;
+     
+    }
+
+    .form-group label,input{
+        margin-top:3px
+    }
+
+    .form-group input {
+        width: 20rem;
+        margin-left:40px;
+    }
+</style>
+
+<EditForm Model="Employee" FormName="create" OnValidSubmit="CreateEmployee" class="card text-center" style="margin-top:160px;margin-left:470px;width:25rem;height:20rem;line-height:100px;line-height:normal;padding-top:36px">
+    <DataAnnotationsValidator/>
+   
+    <div class="form-group" >
+        <label for="exampleInputEmail1">Name</label>
+        <InputText @bind-Value="Employee.Name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name"></InputText>
+        <ValidationMessage For="() => Employee.Name" />
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Description</label>
+        <InputText @bind-Value="Employee.Description" type="text" class="form-control"  placeholder="Description"></InputText>
+        <ValidationMessage For="() => Employee.Description" />
+    </div>
+    
+    <button  type="submit" class="btn btn-light" style="margin-top:90px;width:20rem;margin-left:40px;">Submit</button>
+</EditForm>

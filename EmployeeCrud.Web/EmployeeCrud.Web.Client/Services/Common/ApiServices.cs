@@ -1,7 +1,7 @@
 ﻿using EmployeeCrud.Web.Shared.Responses;
 using System.Net.Http.Json;
 
-namespace EmployeeCrud.Web.Client.Services;
+namespace EmployeeCrud.Web.Client.Services.Common;
 
 public class ApiServices(HttpClient http) : IApiServices
 {
@@ -23,6 +23,12 @@ public class ApiServices(HttpClient http) : IApiServices
     {
         var response = await http.PostAsJsonAsync(url, request) ?? default!;
         return await response.Content.ReadFromJsonAsync<Response<int>>() ?? default!;
+    }
+
+    public async Task<Response<Empty>> Delete(string url, int id)
+    {
+        var response = await http.DeleteAsync($"{url}/{id}");
+        return await response.Content.ReadFromJsonAsync<Response<Empty>>() ?? default!;
     }
 
 }

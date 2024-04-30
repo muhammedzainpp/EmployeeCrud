@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\EmployeeCrud.Web.Infra\EmployeeCrud.Web.Infra.csproj" />
     <ProjectReference Include="..\EmployeeCrud.Web.Client\EmployeeCrud.Web.Client.csproj" />
+    <PackageReference Include="Blazored.Modal" Version="7.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.4">
       <PrivateAssets>all</PrivateAssets>

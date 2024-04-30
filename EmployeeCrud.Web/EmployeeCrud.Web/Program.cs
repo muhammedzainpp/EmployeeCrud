@@ -5,6 +5,10 @@ using EmployeeCrud.Web.Infra.Data;
 using Microsoft.EntityFrameworkCore;
 using EmployeeCrud.Web.Application.DI;
 using EmployeeCrud.Web.Apis;
+using EmployeeCrud.Web.Client.Services.Employees;
+using EmployeeCrud.Web.Client.Services.Common;
+using EmployeeCrud.Web.Client.Services;
+using Blazored.Modal;
 
 namespace EmployeeCrud.Web;
 public class Program
@@ -13,16 +17,25 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7003") });
         // Add services to the container.
         builder.Services.AddRazorComponents()
             .AddInteractiveServerComponents()
             .AddInteractiveWebAssemblyComponents();
         builder.Services.AddApplication();
 
+        builder.Services.AddBlazoredModal();
+
         builder.Services.AddDbContext<IAppDbContext,AppDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddScoped<IApiServices, ApiServices>();
+
+        builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+        builder.Services.AddScoped<IModalService, ModalService>();
+
 
         var app = builder.Build();
+       
 
 
 
