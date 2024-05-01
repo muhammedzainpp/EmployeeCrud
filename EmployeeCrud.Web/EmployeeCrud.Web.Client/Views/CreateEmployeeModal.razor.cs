@@ -9,6 +9,9 @@ public partial class CreateEmployeeModal
     [Inject]
     public IEmployeeService Service { get; set; } = default!;
 
+    [Inject]
+    public NavigationManager NavigationManager { get; set; } = default!;
+
     [SupplyParameterFromForm]
     public SaveEmployeeDto Employee { get; set; } = new SaveEmployeeDto();
 
@@ -29,6 +32,7 @@ public partial class CreateEmployeeModal
     public async Task CreateEmployee()
     {
         await Service.SaveEmployee(Employee);
+        NavigationManager.NavigateTo("employeelist");
     }
    
 }
