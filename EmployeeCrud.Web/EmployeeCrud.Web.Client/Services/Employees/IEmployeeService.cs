@@ -6,6 +6,6 @@ namespace EmployeeCrud.Web.Client.Services.Employees;
 public interface IEmployeeService
 {
     Task DeleteEmployee(int id);
-    Task<IEnumerable<EmployeeDto>> GetAllEmployees();
+    Task<List<EmployeeDto>> GetAllEmployees();
     Task<int> SaveEmployee(SaveEmployeeDto request);
 }

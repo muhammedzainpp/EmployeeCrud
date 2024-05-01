@@ -10,9 +10,8 @@ public partial class EmployeeListView
     public IEmployeeService Service { get; set; } = default!;
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
-    public IEnumerable<EmployeeDto> Employees { get; set; } = new List<EmployeeDto>();
+    public List<EmployeeDto> Employees { get; set; } = new List<EmployeeDto>();
 
-    event Action ProductDeleted =default!;
 
     protected override async Task OnInitializedAsync()
     {
@@ -25,8 +24,9 @@ public partial class EmployeeListView
     public async Task DeleteEmployee(int id)
     {
         await Service.DeleteEmployee(id);
-
-        ProductDeleted.Invoke();
+        StateHasChanged();
+        var employee = Employees.Find(x=>x.Id == id)??default!;
+        Employees.Remove(employee);   
     }
 
 }
